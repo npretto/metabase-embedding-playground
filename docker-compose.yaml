@@ -1,0 +1,16 @@
+version: "3"
+services:
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+      # add here any other port you need to expose
+      # - 8080:8080
+    extra_hosts:
+      - host:host-gateway
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./certs:/data/caddy/pki/authorities/local/

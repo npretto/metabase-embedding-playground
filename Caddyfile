@@ -1,0 +1,17 @@
+localhost {
+	header Content-Type text/html
+	respond "<h1>Hello, world!</h1>
+	 <ul>
+	 	<li>Go to <a href='https://metabase.company.local'>metabase</a></li>  
+	 	<li>Go to <a href='https://dashboard.company.local'>the test app</a></li>  
+	</ul>"
+}
+
+metabase.local metabase.company.local {
+	reverse_proxy host:3000
+}
+
+company.local dashboard.company.local {
+	reverse_proxy host:8001
+}
+
