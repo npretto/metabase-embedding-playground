@@ -20,7 +20,7 @@ const getIframeUrl = ({
   const payload = {
     resource: { dashboard: dashboardId },
     params: {},
-    exp: Math.round(Date.now() / 1000) + 10 * 60, // 10 minute expiration
+    exp: Math.round(Date.now() / 1000) + 60 * 24 * 7 * 60,
   };
   const token = jwt.sign(payload, METABASE_SECRET_KEY);
 
@@ -28,7 +28,7 @@ const getIframeUrl = ({
     MB_BASE_URL +
     "/embed/dashboard/" +
     token +
-    `${tab ? `?tab=${tab}` : ""}` +
+    `${tab ? `?tab=${tab}` : "?id=001"}` +
     `#${
       theme == "light" ? "" : `theme=${theme}&`
     }bordered=${bordered}&titled=${titled}`;
