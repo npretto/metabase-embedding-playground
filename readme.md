@@ -1,6 +1,22 @@
 # playground for embedding metabase
 
-## instructions
+## instructions for basic functionality
+
+Populate .env with values of your MB instance.
+Pro tip: you can set the following ENVS on your MB instance to make sure embedding is always enabled and keep keys the same if you nuke the db:
+
+```
+MB_EMBEDDING_SECRET_KEY=...
+MB_JWT_SHARED_SECRET=...
+MB_JWT_ENABLED=true
+MB_JWT_IDENTITY_PROVIDER_URI="http://localhost:8001/sso"
+MB_ENABLE_EMBEDDING=true
+MB_EMBEDDING_APP_ORIGIN=http://localhost:8001
+MB_JWT_GROUP_MAPPINGS='{"admin": [2]}'
+MB_JWT_GROUP_SYNC=true
+```
+
+## instructions for same domain
 
 ### Add the entries to /etc/hosts
 
