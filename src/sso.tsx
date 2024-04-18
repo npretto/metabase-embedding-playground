@@ -28,8 +28,6 @@ const ssoRoutes = new Hono();
 ssoRoutes.get("/", (c) => {
   console.log("/jwt-login");
   const returnTo = c.req.query("return_to") || MB_BASE_URL;
-  const jwtToken = jwt.sign(USERS[0], METABASE_JWT_SECRET);
-  console.log("jwtToken", jwtToken);
 
   return c.html(
     <div>
